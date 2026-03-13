@@ -50,21 +50,26 @@ export const translations = {
     aboutMe: 'Sobre mim',
     passionateDevDesigner: 'Desenvolvedor apaixonado por criar',
     aboutIntro: 'Ezequiel de Souza Rodrigues - Desenvolvedor Full-Stack Java | Spring Boot | NodeJS | React',
-    aboutDescription1: 'Sou 𝐃𝐞𝐬𝐞𝐧𝐯𝐨𝐥𝐯𝐞𝐝𝐨𝐫 𝐅𝐮𝐥𝐥-𝐒𝐭𝐚𝐜𝐤 com foco em 𝐉𝐚𝐯𝐚, 𝐒𝐩𝐫𝐢𝐧𝐠 𝐁𝐨𝐨𝐭, 𝐑𝐞𝐚𝐜𝐭, 𝐍𝐨𝐝𝐞.𝐣𝐬 e 𝐒𝐐𝐋. Tenho experiência sólida em projetos web, 𝐚𝐮𝐭𝐨𝐦𝐚𝐜̧𝐚̃𝐨 𝐝𝐞 𝐭𝐞𝐬𝐭𝐞𝐬 (𝐂𝐲𝐩𝐫𝐞𝐬𝐬, 𝐉𝐔𝐧𝐢𝐭, 𝐒𝐞𝐥𝐞𝐧𝐢𝐮𝐦, 𝐑𝐞𝐬𝐭𝐀𝐬𝐬𝐮𝐫𝐞𝐝) e integração de 𝐀𝐏𝐈𝐬. Ao longo de 𝟐 𝐚𝐧𝐨𝐬, trabalhei em sistemas que vão de 𝐂𝐑𝐔𝐃𝐬 a aplicações escaláveis e seguras.',
+    aboutDescription1: 'Sou 𝐃𝐞𝐬𝐞𝐧𝐯𝐨𝐥𝐯𝐞𝐝𝐨𝐫 𝐅𝐮𝐥𝐥-𝐒𝐭𝐚𝐜𝐤 com foco em 𝐉𝐚𝐯𝐚, 𝐒𝐩𝐫𝐢𝐧𝐠 𝐁𝐨𝐨𝐭, 𝐑𝐞𝐚𝐜𝐭, 𝐍𝐨𝐝𝐞.𝐣𝐬 e 𝐒𝐐𝐋. Tenho experiência sólida em projetos web, 𝐚𝐮𝐭𝐨𝐦𝐚𝐜̧𝐚̃𝐨 𝐝𝐞 𝐭𝐞𝐬𝐭𝐞𝐬 (𝐂𝐲𝐩𝐫𝐞𝐬𝐬, 𝐉𝐔𝐧𝐢𝐭, 𝐒𝐞𝐥𝐞𝐧𝐢𝐮𝐦, 𝐑𝐞𝐬𝐭𝐀𝐬𝐬𝐮𝐫𝐞𝐝) e integração de 𝐀𝐏𝐈𝐬. Ao longo dos anos, trabalhei em sistemas que vão de 𝐂𝐑𝐔𝐃𝐬 a aplicações escaláveis e seguras.',
     aboutDescription2: ' Além da minha experiência profissional, estou em formação acadêmica em Análise e Desenvolvimento de Sistemas pela Universidade Anhanguera, onde desenvolvi habilidades analíticas e de resolução de problemas que complementam minhas capacidades técnicas.',
     downloadCV: 'Baixar CV',
     myJourney: 'Minha jornada',
 
     // Timeline
     freelancer: {
-      year: "2022 - 2024",
+      year: "2024 - 2025",
       title: "Freelancer Front-End",
-      description: "Atuei como freelancer por 2 anos, desenvolvendo landing pages e projetos pessoais. Durante esse período, trabalhei com tecnologias com HTML, CSS, JavaScript e frameworks modernos para criar interfaces responsivas e funcionais."
+      description: "Atuei como freelancer  desenvolvendo landing pages e projetos pessoais. Durante esse período, trabalhei com tecnologias com HTML, CSS, JavaScript e frameworks modernos para criar interfaces responsivas e funcionais."
     },
-    developer: {
-      year: "2024 - Presente",
+    developer_1: {
+      year: "2025 - Presente",
+      title: "Desenvolvedor Full-Stack - Capco",
+      description: "Desenvolvo e mantenho APIs RESTful robustas e escaláveis ​​usando Java (8+) e o ecossistema Spring, incluindo Spring Boot e Spring Data. Além de utilização de tecnologias Front-End."
+    },
+    developer_2: {
+      year: "2024 - 2025",
       title: "Desenvolvedor I - DBServer",
-      description: "Desenvolvo sistemas e aplicativos, codifico e testo linguagens de programação, determino design de interface e critérios de navegação ergonômicos."
+      description: "Desenvolvi sistemas e aplicativos, condifiquei e testei linguagens de programação, determinando design de interface e critérios de navegação ergonômicos."
     },
     bachelorAS: {
       year: "2024 - Presente",
@@ -163,7 +168,7 @@ export const translations = {
     aboutMe: 'About me',
     passionateDevDesigner: 'Passionate developer to develop',
     aboutIntro: 'Ezequiel de Souza Rodrigues - Full-Stack Java Developer| Java | SpringBoot | NodeJS | React',
-    aboutDescription1: 'I am 𝐃𝐞𝐬𝐞𝐧𝐯𝐨𝐥𝐯𝐞𝐝𝐨𝐫 𝐅𝐮𝐥𝐥-𝐒𝐭𝐚𝐜𝐤 with a focus on 𝐉𝐚𝐯𝐚, 𝐒𝐩𝐫𝐢𝐧𝐠 𝐁𝐨𝐨𝐭, 𝐑𝐞𝐚𝐜𝐭, 𝐍𝐨𝐝𝐞.𝐣𝐬 and 𝐒𝐐𝐋. I have solid experience in web projects, 𝐚𝐮𝐭𝐨𝐦𝐚𝐜̧𝐚̃𝐨 𝐝𝐞 𝐭𝐞𝐬𝐭𝐞𝐬 (𝐂𝐲𝐩𝐫𝐞𝐬𝐬, 𝐉𝐔𝐧𝐢𝐭, 𝐒𝐞𝐥𝐞𝐧𝐢𝐮𝐦, 𝐑𝐞𝐬𝐭𝐀𝐬𝐬𝐮𝐫𝐞𝐝) and integration of 𝐀𝐏𝐈𝐬. Throughout 𝟐 𝐚𝐧𝐨𝐬, I have worked on systems ranging from 𝐂𝐑𝐔𝐃𝐬 to scalable and secure applications.',
+    aboutDescription1: 'I am 𝐃𝐞𝐬𝐞𝐧𝐯𝐨𝐥𝐯𝐞𝐝𝐨𝐫 𝐅𝐮𝐥𝐥-𝐒𝐭𝐚𝐜𝐤 with a focus on 𝐉𝐚𝐯𝐚, 𝐒𝐩𝐫𝐢𝐧𝐠 𝐁𝐨𝐨𝐭, 𝐑𝐞𝐚𝐜𝐭, 𝐍𝐨𝐝𝐞.𝐣𝐬 and 𝐒𝐐𝐋. I have solid experience in web projects, 𝐚𝐮𝐭𝐨𝐦𝐚𝐜̧𝐚̃𝐨 𝐝𝐞 𝐭𝐞𝐬𝐭𝐞𝐬 (𝐂𝐲𝐩𝐫𝐞𝐬𝐬, 𝐉𝐔𝐧𝐢𝐭, 𝐒𝐞𝐥𝐞𝐧𝐢𝐮𝐦, 𝐑𝐞𝐬𝐭𝐀𝐬𝐬𝐮𝐫𝐞𝐝) and integration of 𝐀𝐏𝐈𝐬. Throughout the years, I have worked on systems ranging from 𝐂𝐑𝐔𝐃𝐬 to scalable and secure applications.',
     aboutDescription2: 'In addition to my professional experience, I am in academic training in Systems Analysis and Development at Anhanguera University, where I developed analytical and solving skills of problems that complement my technical capabilities.',
     downloadCV: 'Download CV',
     myJourney: 'My journey',
@@ -172,10 +177,15 @@ export const translations = {
     freelancer: {
       year: "2022 - 2024",
       title: "Freelancer Front-End",
-      description: "I worked as a freelancer for 2 years, developing landing pages and personal projects. During this time, I worked with technologies such as HTML, CSS, JavaScript, and modern frameworks to create responsive and functional interfaces."
+      description: "I worked as a freelancer along the years, developing landing pages and personal projects. During this time, I worked with technologies such as HTML, CSS, JavaScript, and modern frameworks to create responsive and functional interfaces."
+    }, 
+    developer_1: {
+      year: "2025 - Present",
+      title: "Full-Stack Developer - Capco",
+      description: "I develop and maintain robust and scalable RESTful APIs using Java (8+) and the Spring ecosystem, including Spring Boot and Spring Data. I also utilize front-end technologies."
     },
-    developer: {
-      year: "2024 - Present",
+    developer_2: {
+      year: "2024 - 2025",
       title: "Developer I - DBServer",
       description: "I develop systems and applications, code and test programming languages, determine interface design and ergonomic navigation criteria."
     },

@@ -13,7 +13,7 @@ interface TimelineItemProps {
 }
 const handleDownload = () => {
   const link = document.createElement('a');
-  link.href = 'https://drive.google.com/file/d/18Nj65mK5tbyBzmnWGy9SSAnRlnF8adWO/view?usp=sharing';
+  link.href = '../../../public/CV-Ezequiel-PCD.pdf';
   link.target = 'blank';
   document.body.appendChild(link);
   link.click();
@@ -120,9 +120,17 @@ export default function About() {
             <div className="ml-4">
               <FadeIn direction="up" delay={300}>
                 <TimelineItem
-                  year={t('developer.year')}
-                  title= {t('developer.title')}
-                  description={t('developer.description')}
+                  year={t('developer_1.year')}
+                  title= {t('developer_1.title')}
+                  description={t('developer_1.description')}
+                  icon={<Briefcase className="w-5 h-5" />}
+                />
+              </FadeIn>
+              <FadeIn direction="up" delay={300}>
+                <TimelineItem
+                  year={t('developer_2.year')}
+                  title= {t('developer_2.title')}
+                  description={t('developer_2.description')}
                   icon={<Briefcase className="w-5 h-5" />}
                 />
               </FadeIn>
