@@ -1,69 +1,76 @@
-# Welcome to your Lovable project
+# Ezequiel SR · Portfólio profissional
 
-## Project info
+[![CI](https://github.com/ezequieldesr/dynamic-portfolio-nova/actions/workflows/ci.yml/badge.svg)](https://github.com/ezequieldesr/dynamic-portfolio-nova/actions/workflows/ci.yml)
+[Ver site](https://dynamic-portfolio-nova.vercel.app) · [Demonstração](docs/demo/portfolio-demo.mp4) · [Material Fiverr](docs/fiverr/PUBLICAR-NA-FIVERR.md)
 
-**URL**: https://lovable.dev/projects/aa428ebe-0135-4c87-aa6c-f862275cc2df
+![Interface do portfólio](docs/demo/01-inicio.png)
 
-## How can I edit this code?
+Portfólio pessoal para apresentar projetos, competências e experiência, com contato direto.
+Criado em **14 de abril de 2025**, com React, TypeScript, Vite, Tailwind CSS e componentes shadcn/ui.
+A base inicial foi criada com Lovable; este repositório contém as personalizações e a evolução do projeto.
 
-There are several ways of editing your application.
+## Explore os recursos
 
-**Use Lovable**
+- Navegação por Projetos, Sobre, Habilidades e Contato, com rolagem suave.
+- Temas claro e escuro, compartilhados entre os controles e salvos no navegador.
+- Conteúdo em português e inglês, com preferência persistida.
+- Cards com links para código-fonte e demonstrações externas.
+- Download do currículo em PDF.
+- Layout responsivo e menu móvel com fechamento por Escape.
+- Formulário com integração EmailJS opcional e alternativa de contato por e-mail.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/aa428ebe-0135-4c87-aa6c-f862275cc2df) and start prompting.
+<details>
+<summary>Ver mais telas</summary>
 
-Changes made via Lovable will be committed automatically to this repo.
+![Projetos](docs/demo/02-projetos.png)
+![Tema escuro](docs/demo/03-tema-escuro.png)
+![Versão móvel](docs/demo/05-mobile.png)
 
-**Use your preferred IDE**
+</details>
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Execute localmente
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Requisitos: **Node.js 24** e npm. Este projeto é somente frontend: não precisa de Java, backend ou banco de dados.
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone https://github.com/ezequieldesr/dynamic-portfolio-nova.git
+cd dynamic-portfolio-nova
+npm ci
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Acesse http://127.0.0.1:8084. Use `npm run build` e `npm run preview` para conferir a versão de produção.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Contato por EmailJS
 
-**Use GitHub Codespaces**
+Sem configuração, o site funciona e apresenta contato por e-mail; o botão de envio fica desabilitado.
+Para habilitá-lo, copie `.env.example` para `.env.local`, configure os três identificadores públicos do
+EmailJS e reinicie o Vite. O template precisa aceitar `name`, `email`, `subject` e `message`.
+Configure a lista de domínios autorizados, quotas e proteção contra abuso no painel do EmailJS.
+Variáveis `VITE_` são públicas no JavaScript gerado: nunca coloque senhas ou chaves privadas nelas.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Verifique as alterações
 
-## What technologies are used for this project?
+```bash
+npm run lint
+npm run typecheck
+npm run build
+npx playwright install chromium
+npm run test:e2e
+```
 
-This project is built with .
+Os testes iniciam o preview automaticamente na porta 8084. Execute-os sem configuração do EmailJS;
+a pipeline já define os identificadores como vazios e não envia mensagens reais.
+Para recriar as capturas e o vídeo local: `npm run demo:record` (após o build).
+O roteiro está em [docs/ROTEIRO-DEMONSTRACAO.md](docs/ROTEIRO-DEMONSTRACAO.md).
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Publicação e manutenção
 
-## How can I deploy this project?
+Na Vercel: framework Vite, comando `npm run build`, saída `dist`, Node.js 24.
+Adicione os identificadores públicos do EmailJS somente se quiser ativar o formulário.
+O arquivo `vercel.json` configura fallback de rotas e headers de segurança.
+Alterações locais só chegam ao site após commit, push e deploy.
 
-Simply open [Lovable](https://lovable.dev/projects/aa428ebe-0135-4c87-aa6c-f862275cc2df) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+GitHub Actions verifica lint, TypeScript, build e testes de navegador. CodeQL e Dependency Review
+complementam a revisão; Dependabot propõe atualizações. Veja [CI e segurança](docs/CI-SEGURANCA.md).
+Os testes não comprovam entrega real de e-mail nem disponibilidade dos sites externos dos projetos.

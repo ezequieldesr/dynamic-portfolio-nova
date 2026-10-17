@@ -1,7 +1,6 @@
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.ts";
 
 @layer base {
   :root {
@@ -97,7 +96,7 @@
   }
 
   .section-container {
-    @apply container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24;
   }
 }
 

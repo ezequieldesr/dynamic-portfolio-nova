@@ -28,10 +28,10 @@ export default function Projects() {
       description: language === 'pt-BR' 
         ? "Jogo de memória inspirado no clássico Simon, desenvolvido com JavaScript" 
         : "Memory game inspired by the classic Simon, developed with JavaScript",
-      html_url: "https://github.com/EzequielSR/O_Desafio_Simon",
+      html_url: "https://github.com/ezequieldesr/O_Desafio_Simon",
       homepage: "https://o-desafio-simon.vercel.app/",
       topics: ["JavaScript", "HTML", "CSS", "Game"],
-      imageUrl: "https://opengraph.githubassets.com/1/EzequielSR/O_Desafio_Simon"
+      imageUrl: "https://opengraph.githubassets.com/1/ezequieldesr/O_Desafio_Simon"
     },
     {
       id: 2,
@@ -39,10 +39,10 @@ export default function Projects() {
       description: language === 'pt-BR' 
         ? "Página de produto de e-commerce responsiva, desenvolvida com HTML, CSS e JavaScript" 
         : "Responsive e-commerce product page, developed with HTML, CSS and JavaScript",
-      html_url: "https://github.com/EzequielSR/ecommerce-product-page-main",
+      html_url: "https://github.com/ezequieldesr/ecommerce-product-page-main",
       homepage: "https://ecommerce-product-page-main-zeta.vercel.app/",
       topics: ["HTML", "CSS", "JavaScript", "E-commerce"],
-      imageUrl: "https://opengraph.githubassets.com/1/EzequielSR/ecommerce-product-page-main"
+      imageUrl: "https://opengraph.githubassets.com/1/ezequieldesr/ecommerce-product-page-main"
     },
     
     {
@@ -51,21 +51,21 @@ export default function Projects() {
       description: language === 'pt-BR' 
         ? "Desenvolvi o IP Address Tracker, um aplicativo que permite visualizar a localização de endereços IP em um mapa interativo. Utilizei a API IP Geolocation da IPify para obter os dados e o LeafletJS para a renderização do mapa, garantindo uma experiência responsiva e fiel ao design proposto." 
         : "I developed IP Address Tracker, an application that allows you to view the location of IP addresses on an interactive map. I used IPify's IP Geolocation API to obtain the data and LeafletJS for the map rendering, ensuring a responsive experience that is faithful to the proposed design.",
-      html_url: "https://github.com/EzequielSR/Ip-Address-Tracker",
+      html_url: "https://github.com/ezequieldesr/Ip-Address-Tracker",
       homepage: "https://ip-address-tracker-theta-seven.vercel.app/",
       topics: ["React", "TypeScript", "NodeJS", "API"],
-      imageUrl: "https://opengraph.githubassets.com/1/EzequielSR/Ip-Address-Tracker"
+      imageUrl: "https://opengraph.githubassets.com/1/ezequieldesr/Ip-Address-Tracker"
     },
     {
       id: 4,
-      name: "Desafio_CRUD_DB",
+      name: "ClonePayloads",
       description: language === 'pt-BR'
-          ? "Este repositório contém um desafio de implementação de um sistema CRUD em Java com Spring Boot. O sistema permite o gerenciamento de Pessoas e Endereços, onde cada Pessoa pode ter vários Endereços, criando um relacionamento de um-para-muitos."
-          : "This repository contains a challenge to implement a CRUD system in Java with Spring Boot. The system allows management of Persons and Addresses, where each Person can have many Addresses, creating a one-to-many relationship.",
-      html_url: "https://github.com/EzequielSR/Desafio_CRUD_DB",
+          ? "Ferramenta para gerar dados JSON de teste com regras configuráveis, interface React e API Java com Spring Boot."
+          : "Tool for generating JSON test data with configurable rules, a React interface and a Java Spring Boot API.",
+      html_url: "https://github.com/ezequieldesr/ClonePayloads_Frontend",
       homepage: "",
-      topics: ["Java", "Spring Boot", "API RESTfull", "H2"],
-      imageUrl: "https://opengraph.githubassets.com/1/EzequielSR/Desafio_CRUD_DB"
+      topics: ["React", "TypeScript", "Java", "Spring Boot"],
+      imageUrl: "https://opengraph.githubassets.com/1/ezequieldesr/ClonePayloads_Frontend"
     }
     
   ];
@@ -89,7 +89,7 @@ export default function Projects() {
         <FadeIn direction="up" delay={100}>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl mb-6 tracking-tight flex items-center gap-3">
             {t('featuredProjects')}
-            <a href="https://github.com/EzequielSR" target="_blank" rel="noopener noreferrer" className="inline-flex">
+            <a href="https://github.com/ezequieldesr" target="_blank" rel="noopener noreferrer" className="inline-flex">
               <Github className="h-8 w-8 text-primary hover:text-accent transition-colors" />
             </a>
           </h2>

@@ -37,14 +37,14 @@ const ContactInfo = ({ icon, title, value, href, delay = 0 }: ContactInfoProps) 
       </div>
       <div>
         <h3 className="font-medium text-foreground">{title}</h3>
-        <p className="text-muted-foreground">{value}</p>
+        <p className="text-muted-foreground break-words">{value}</p>
       </div>
     </a>
   </FadeIn>
 );
 
 export default function Contact() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -53,6 +53,9 @@ export default function Contact() {
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const isConfigured = [import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    import.meta.env.VITE_EMAILJS_TEMPLATE_ID, import.meta.env.VITE_EMAILJS_USER_ID]
+    .every(value => typeof value === 'string' && value.trim().length > 0);
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -66,8 +69,14 @@ export default function Contact() {
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
+    if (!isConfigured) {
+      toast({ title: language === 'pt-BR' ? 'Contato por e-mail' : 'Contact by email',
+        description: language === 'pt-BR' ? 'O formulário está indisponível. Use o e-mail ao lado.' : 'This form is unavailable. Please use the email address beside it.' });
+      return;
+    }
     
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+    if (Object.values(formData).some(value => !value.trim())) {
       toast({
         title: t('error') || 'Erro',
         description: 'Por favor, preencha todos os campos.',
@@ -88,32 +97,16 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      console.log("Tentando enviar email com os seguintes dados:");
-      console.log({
-        name: formData.name,
-        email: formData.email,
-        subject: formData.subject,
-        message: formData.message
-      });
-      
-      
-      const response = await emailjs.send(
+      await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message
-        },
-        import.meta.env.VITE_EMAILJS_USER_ID
+        Object.fromEntries(Object.entries(formData).map(([key, value]) => [key, value.trim()])),
+        { publicKey: import.meta.env.VITE_EMAILJS_USER_ID, limitRate: { throttle: 10000 } }
       );
-      
-      console.log("Resposta do envio:", response);
-      
+
       toast({
-        title: 'Mensagem enviada!',
-        description: 'Obrigado pelo contato. Responderei o mais breve possível.',
+        title: language === 'pt-BR' ? 'Mensagem enviada!' : 'Message sent!',
+        description: language === 'pt-BR' ? 'Obrigado pelo contato. Responderei o mais breve possível.' : 'Thank you for reaching out. I will reply as soon as possible.',
       });
       
       // Reseta o formulário após o envio bem-sucedido
@@ -123,21 +116,12 @@ export default function Contact() {
         subject: '',
         message: '',
       });
-    } catch (error: any) {
-      console.error("Erro detalhado ao enviar mensagem:", error);
-      
-      let errorMessage = 'Houve um erro ao enviar sua mensagem. Por favor, tente novamente mais tarde.';
-      
-      if (error?.text) {
-        errorMessage = `Erro no envio: ${error.text}`;
-      } else if (error?.message) {
-        errorMessage = `Erro no envio: ${error.message}`;
-      } else if (typeof error === 'string') {
-        errorMessage = `Erro no envio: ${error}`;
-      }
-      
+    } catch {
+      const errorMessage = language === 'pt-BR'
+        ? 'Não foi possível enviar. Tente novamente mais tarde ou use o e-mail ao lado.'
+        : 'Unable to send. Please try again later or use the email address beside the form.';
       toast({
-        title: 'Erro no envio',
+        title: language === 'pt-BR' ? 'Erro no envio' : 'Unable to send',
         description: errorMessage,
         variant: "destructive",
       });
@@ -178,6 +162,7 @@ export default function Contact() {
                     </Label>
                     <Input
                       id="name"
+                      maxLength={100}
                       name="name"
                       type="text"
                       required
@@ -194,6 +179,7 @@ export default function Contact() {
                     </Label>
                     <Input
                       id="email"
+                      maxLength={254}
                       name="email"
                       type="email"
                       required
@@ -211,6 +197,7 @@ export default function Contact() {
                   </Label>
                   <Input
                     id="subject"
+                      maxLength={160}
                     name="subject"
                     type="text"
                     required
@@ -227,6 +214,7 @@ export default function Contact() {
                   </Label>
                   <Textarea
                     id="message"
+                      maxLength={5000}
                     name="message"
                     rows={5}
                     required
@@ -238,9 +226,12 @@ export default function Contact() {
                 </div>
                 
                 <div>
+                  {!isConfigured && <p role="status" className="text-sm text-muted-foreground mb-4">
+                    {language === 'pt-BR' ? 'Formulário indisponível. Entre em contato pelo e-mail ao lado.' : 'Form unavailable. Please use the email address beside it.'}
+                  </p>}
                   <CustomButton 
                     type="submit" 
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || !isConfigured}
                     icon={<SendHorizontal className="w-4 h-4" />}
                     iconPosition="right"
                     className="w-full md:w-auto"
