@@ -5,7 +5,7 @@ import { Menu, X } from 'lucide-react';
 import ThemeToggle from '../ui/ThemeToggle';
 import LanguageToggle from '../ui/LanguageToggle';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useMobileMenu } from '@/hooks/use-mobile-menu';
+
 
 interface NavItemProps {
   href: string;
@@ -35,21 +35,21 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-
-
-    if (!isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-    document.body.style.overflow = 'auto'; 
-  };
+  const toggleMenu = () => setIsMenuOpen(open => !open);
+  const closeMenu = () => setIsMenuOpen(false);
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    if (isMenuOpen) document.body.style.overflow = 'hidden';
+    const onEscape = (event: KeyboardEvent) => { if (event.key === 'Escape') closeMenu(); };
+    const onResize = () => { if (window.innerWidth >= 768) closeMenu(); };
+    window.addEventListener('keydown', onEscape);
+    window.addEventListener('resize', onResize);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', onEscape);
+      window.removeEventListener('resize', onResize);
+    };
+  }, [isMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,8 +71,8 @@ export default function Navbar() {
           : "py-6 bg-transparent"
       )}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        <RouterLink to="/" className="flex items-center" onClick={close}>
+      <div className="container relative z-50 mx-auto px-6 flex items-center justify-between">
+        <RouterLink to="/" className="flex items-center" onClick={closeMenu}>
           <span className="font-display font-bold text-2xl">Ezequiel SR</span>
         </RouterLink>
 
@@ -94,6 +94,8 @@ export default function Navbar() {
             isMenuOpen ? "backdrop-blur-lg bg-white/10" : "bg-transparent" 
           )}
           onClick={toggleMenu}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
           aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
         >
           {isMenuOpen ? (
@@ -105,12 +107,14 @@ export default function Navbar() {
       </div>
 
       <div 
+        id="mobile-menu"
+        ref={element => { if (element) element.inert = !isMenuOpen; }}
+        aria-hidden={!isMenuOpen}
         data-navbar="mobile-menu"
         className={cn(
           "fixed inset-0 z-40 w-screen h-screen transition-transform ease-out-expo duration-300 backdrop-blur-lg bg-black/60 md:hidden flex flex-col justify-center items-center bg-card/70",
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
-        onClick={closeMenu} 
       >
         <div className="container mx-auto px-6 py-8 flex flex-col space-y-8 items-center">
           <NavItem href="/#projects" translationKey="projects" className="text-xl" onClick={closeMenu} />

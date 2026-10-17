@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-10-16",
+  "browser": "Chromium",
+  "passed": 5,
+  "failed": 0,
+  "checks": [
+    "navigation and CV download",
+    "theme and language persistence",
+    "mobile menu and overflow",
+    "contact without EmailJS configuration",
+    "not found route"
+  ],
+  "emailDeliveryTested": false
+}

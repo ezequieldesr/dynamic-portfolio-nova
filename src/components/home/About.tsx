@@ -13,8 +13,9 @@ interface TimelineItemProps {
 }
 const handleDownload = () => {
   const link = document.createElement('a');
-  link.href = '../../../public/CV-Ezequiel-PCD.pdf';
-  link.target = 'blank';
+  link.href = '/CV-Ezequiel-PCD.pdf';
+  link.download = 'CV-Ezequiel.pdf';
+
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

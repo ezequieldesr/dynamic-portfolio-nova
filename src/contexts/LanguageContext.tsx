@@ -261,7 +261,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>(() => {
-    return localStorage.getItem('language') as Language || 'pt-BR';
+    return localStorage.getItem('language') === 'en' ? 'en' : 'pt-BR';
   });
 
   useEffect(() => {
@@ -274,12 +274,12 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     // Handle nested keys (using dot notation like 'projects.title')
     if (key.includes('.')) {
       const parts = key.split('.');
-      let result: any = translations[language];
+      let result: unknown = translations[language];
       
       // Navigate through the nested object
       for (const part of parts) {
         if (result && typeof result === 'object' && part in result) {
-          result = result[part];
+          result = (result as Record<string, unknown>)[part];
         } else {
           return key; // Fallback to key if not found
         }
